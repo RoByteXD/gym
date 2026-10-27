@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b0e">
+<meta name="description" content="GYM — stronger together. Training, coaching and memberships built around your goals.">
+<title>GYM — Stronger Together</title>
+<style>
+:root{--bg:#070a0d;--panel:#0d1318;--panel2:#101920;--text:#f5f7f8;--muted:#a7b1b9;--line:#25313a;--accent:#ffd400;--accent2:#ffeb67;--radius:18px;--max:1160px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 80% 5%,rgba(255,212,0,.07),transparent 35%),radial-gradient(ellipse at 0% 55%,rgba(32,94,112,.11),transparent 40%)}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button,a{ -webkit-tap-highlight-color:transparent}
+img{display:block;width:100%;object-fit:cover}
+.container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+.section{padding:94px 0}
+.eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:850}
+.section-head{text-align:center;max-width:660px;margin:0 auto 38px}
+.section-head h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.1;letter-spacing:-.045em;margin:10px 0 13px}
+.section-head p{color:var(--muted);font-size:.98rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--accent);background:var(--accent);color:#11130b;padding:13px 21px;border-radius:999px;font-weight:850;font-size:.84rem;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px #ffd40030;background:var(--accent2)}
+.btn-outline{background:transparent;color:var(--text);border-color:#64717b}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);background:#ffd4000b}
+.btn-small{padding:9px 16px;font-size:.76rem}
+header{position:sticky;top:0;z-index:50;background:#070a0de8;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff0b}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:10px;font-size:1.5rem;font-weight:950;letter-spacing:-.06em;line-height:1}
+.brand-mark{width:38px;height:38px;color:var(--accent)}
+.brand small{display:block;color:var(--accent);font-size:.53rem;letter-spacing:.15em;margin-top:5px}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-size:.76rem;font-weight:750;color:#c7cdd1;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.menu-toggle{display:none;background:transparent;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 11px;font-size:1.2rem}
+.hero{position:relative;min-height:650px;display:grid;align-items:center;isolation:isolate;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#070a0df7 0%,#070a0de8 31%,#070a0d60 60%,#070a0d40 100%),linear-gradient(0deg,#070a0d 0%,transparent 25%),url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=2000&q=85') center 42%/cover no-repeat;transform:scale(1.04);animation:heroZoom 16s ease-in-out infinite alternate}
+.hero-content{padding:84px 0 72px;max-width:610px}
+.hero h1{font-size:clamp(3rem,7.3vw,6.2rem);line-height:.98;letter-spacing:-.075em;font-weight:950;margin:19px 0 22px}
+.hero h1 span{display:block;color:var(--accent)}
+.hero-copy{max-width:470px;color:#c3cbd0;font-size:1.05rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:29px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:34px;color:#d6dadd;font-size:.82rem}
+.hero-meta span{display:flex;align-items:center;gap:9px}
+.hero-meta b{color:var(--accent);font-size:1.1rem}
+.hero-note{position:absolute;right:max(5vw,calc((100vw - var(--max))/2));bottom:95px;color:var(--accent);font-size:clamp(1.2rem,2.3vw,2rem);font-weight:900;line-height:1.05;transform:rotate(-7deg);text-align:center;text-shadow:0 4px 20px #000}
+.hero-note:after{content:"";display:block;width:85px;border-bottom:3px solid var(--accent);margin:13px auto 0;transform:rotate(-9deg)}
+.features{border-block:1px solid #ffffff0b;background:linear-gradient(90deg,#0c1318,#0a1014,#0c1318)}
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.feature{padding:28px 20px;text-align:center;border-right:1px solid #ffffff0a}
+.feature:last-child{border:0}
+.feature-icon{display:flex;align-items:center;justify-content:center;color:#f5f7f8;margin:0 auto 12px;width:46px;height:46px;border:1px solid #ffffff24;border-radius:14px;background:linear-gradient(145deg,#182129,#0d1318);box-shadow:inset 0 1px 0 #ffffff0b}
+.feature-icon svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.feature h3{font-size:1rem;margin-bottom:4px}
+.feature p{font-size:.8rem;color:var(--muted);max-width:210px;margin:auto}
+.programs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.program-card{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.program-card:hover{transform:translateY(-7px);border-color:#ffd40088;box-shadow:0 18px 50px #0008}
+.program-card img{height:175px;filter:saturate(.78);transition:transform .5s}
+.program-card:hover img{transform:scale(1.06)}
+.program-body{padding:18px}
+.program-title{display:flex;justify-content:space-between;gap:10px;align-items:center;font-weight:850;margin-bottom:7px}
+.program-title span{color:var(--accent);font-size:1.15rem}
+.program-body p{font-size:.82rem;color:var(--muted)}
+.program-link{display:inline-block;margin-top:13px;color:var(--accent);font-size:.76rem;font-weight:800}
+.pricing{background:linear-gradient(180deg,#0a1015,#080b0e)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.price-card{position:relative;padding:29px 27px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#0c141b,#080c10);transition:transform .25s,border-color .25s}
+.price-card:hover{transform:translateY(-5px);border-color:#ffd40080}
+.price-card.popular{border:1.5px solid var(--accent);box-shadow:0 0 0 1px #ffd40016,0 20px 60px #0004}
+.popular-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#111;font-size:.7rem;font-weight:950;letter-spacing:.08em;padding:4px 16px;border-radius:999px;white-space:nowrap}
+.price-card h3{font-size:1.25rem}
+.price-desc{color:var(--muted);font-size:.84rem;min-height:26px}
+.price{margin:21px 0 18px;font-size:2.2rem;font-weight:950;letter-spacing:-.06em}
+.price small{font-size:.78rem;font-weight:550;letter-spacing:0;color:var(--muted)}
+.perks{list-style:none;display:grid;gap:11px;margin:20px 0 26px}
+.perks li{display:flex;gap:9px;color:#d5dadd;font-size:.85rem}
+.perks li:before{content:"✓";color:var(--accent);font-weight:950}
+.price-card .btn{width:100%}
+.note{color:#89959d;text-align:center;font-size:.78rem;margin-top:20px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:58px}
+.about-pics{position:relative;min-height:440px}
+.about-pics img{position:absolute;border-radius:14px;border:1px solid #ffffff15}
+.about-pics .pic-one{width:73%;height:365px;left:0;top:0}
+.about-pics .pic-two{width:48%;height:230px;right:0;bottom:0;border:6px solid var(--bg)}
+.about-stamp{position:absolute;bottom:38px;left:8px;background:var(--accent);color:#10130c;border-radius:13px;padding:15px 20px;font-weight:950;line-height:1.1;transform:rotate(-4deg)}
+.about-copy h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.05em;line-height:1.05;margin:10px 0 19px}
+.about-copy p{color:var(--muted);margin-bottom:15px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:27px 0}
+.stat{border-right:1px solid var(--line);padding-right:8px}
+.stat:last-child{border:0}
+.stat strong{display:block;color:var(--accent);font-size:1.7rem;line-height:1.2}
+.stat span{font-size:.73rem;color:var(--muted)}
+.trainers{background:#0a1014}
+.trainer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.trainer-card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#0d1419}
+.trainer-card img{height:235px;object-position:center top;filter:saturate(.8)}
+.trainer-info{padding:15px}
+.trainer-info h3{font-size:1rem}
+.trainer-info p{font-size:.78rem;color:var(--muted)}
+.trainer-info span{display:inline-block;color:var(--accent);font-size:.72rem;margin-top:8px}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.quote{padding:23px;border:1px solid var(--line);border-radius:13px;background:var(--panel)}
+.stars{color:var(--accent);letter-spacing:.12em;margin-bottom:10px}
+.quote p{color:#d2d8dc;font-size:.88rem}
+.quote footer{display:flex;align-items:center;gap:11px;margin-top:18px;color:var(--muted);font-size:.78rem}
+.avatar{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#26343c;color:var(--accent);font-weight:900}
+.cta{position:relative;text-align:center;padding:75px 20px;background:linear-gradient(#080b0de8,#080b0df0),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=80') center/cover}
+.cta h2{font-size:clamp(2rem,4vw,3.3rem);letter-spacing:-.05em;margin:9px 0}
+.cta p{color:var(--muted);margin-bottom:23px}
+footer.site-footer{background:#06090c;border-top:1px solid #ffffff12}
+.footer-top{padding:35px 0;display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.footer-links{display:flex;gap:19px;flex-wrap:wrap;color:var(--muted);font-size:.8rem}
+.footer-links a:hover{color:var(--accent)}
+.socials{display:flex;gap:10px}
+.socials a{display:grid;place-items:center;width:35px;height:35px;border:1px solid var(--line);border-radius:50%;font-size:.8rem;transition:.2s}
+.socials a:hover{border-color:var(--accent);color:var(--accent)}
+.footer-bottom{padding:16px 0;border-top:1px solid #ffffff0b;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#77848c;font-size:.72rem}
+.back-top{position:fixed;right:20px;bottom:20px;z-index:20;width:42px;height:42px;border-radius:50%;border:1px solid #ffd40088;background:#0c1218;color:var(--accent);cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s}
+.back-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);background:#152028;border:1px solid #ffd40077;color:#fff;padding:13px 18px;border-radius:12px;z-index:100;opacity:0;pointer-events:none;transition:.3s;max-width:calc(100% - 30px);font-size:.85rem;box-shadow:0 10px 40px #0008}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes heroZoom{from{transform:scale(1.02)}to{transform:scale(1.09)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media(max-width:900px){.nav-links{gap:15px}.programs-grid,.trainer-grid{grid-template-columns:repeat(2,1fr)}.hero{min-height:610px}.hero-note{right:5%;bottom:50px}.about-grid{gap:35px}.about-pics{min-height:390px}.about-pics .pic-one{height:320px}.about-pics .pic-two{height:190px}}
+@media(max-width:700px){.container{width:min(100% - 30px,var(--max))}.section{padding:70px 0}.nav{height:68px}.menu-toggle{display:block}.nav-cta{display:none}.nav-links{display:none;position:absolute;top:67px;left:0;right:0;background:#090e12;border-bottom:1px solid var(--line);padding:18px 22px 22px;flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:12px 0;border-bottom:1px solid #ffffff0b}.nav-links a:last-child{border:0}.hero{min-height:660px;align-items:end}.hero-bg{background:linear-gradient(90deg,#070a0df2,#070a0d9c 75%,#070a0d77),linear-gradient(0deg,#070a0d 0%,transparent 65%),url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1000&q=80') 60% center/cover no-repeat}.hero-content{padding:100px 0 60px}.hero h1{font-size:clamp(3.1rem,14vw,5rem)}.hero-copy{font-size:.96rem}.hero-note{display:none}.hero-meta{gap:12px 18px;margin-top:24px}.feature-grid{grid-template-columns:repeat(2,1fr)}.feature{padding:23px 12px;border-bottom:1px solid #ffffff0a}.feature:nth-child(2){border-right:0}.feature:nth-child(3),.feature:nth-child(4){border-bottom:0}.programs-grid{gap:12px}.program-card img{height:135px}.program-body{padding:13px}.program-title{font-size:.88rem}.program-body p{font-size:.76rem}.pricing-grid{grid-template-columns:1fr;max-width:440px;margin:auto;gap:25px}.price-card{padding:27px 24px}.about-grid{grid-template-columns:1fr;gap:30px}.about-pics{min-height:360px;max-width:520px;width:100%;margin:auto}.about-pics .pic-one{height:300px}.about-pics .pic-two{height:180px}.about-stamp{bottom:28px}.trainer-grid{gap:12px}.trainer-card img{height:190px}.trainer-info{padding:12px}.testimonial-grid{grid-template-columns:1fr}.quote{padding:20px}.footer-top{align-items:flex-start;flex-direction:column}.footer-links{gap:14px}.footer-bottom{flex-direction:column}.section-head{margin-bottom:30px}}
+@media(max-width:390px){.programs-grid,.trainer-grid{grid-template-columns:1fr}.program-card img{height:190px}.trainer-card img{height:260px}.hero-actions .btn{padding:12px 17px}.stats{gap:7px}.stat strong{font-size:1.45rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="GYM home">
+      <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M8 24h8v16H8zM18 17h7v30h-7zM25 28h14v8H25zM39 17h7v30h-7zM48 24h8v16h-8z" fill="currentColor"/><path d="M3 28h5v8H3zM56 28h5v8h-5z" fill="currentColor"/></svg>
+      <span>GYM<small>STRONGER TOGETHER</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home" class="active">HOME</a><a href="#about">ABOUT</a><a href="#programs">PROGRAMS</a><a href="#pricing">PRICING</a><a href="#trainers">TRAINERS</a><a href="#contact">CONTACT</a>
+    </nav>
+    <a class="btn btn-small nav-cta" href="#pricing">JOIN NOW ↗</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">FITNESS&nbsp; | &nbsp;STRENGTH&nbsp; | &nbsp;BETTER YOU</div>
+      <h1>YOUR GOALS.<span>OUR MISSION.</span></h1>
+      <p class="hero-copy">Build a stronger, healthier and more confident you. Train with purpose, find your people, and become your own kind of strong.</p>
+      <div class="hero-actions"><a class="btn" href="#pricing">JOIN NOW <span>→</span></a><a class="btn btn-outline" href="#programs">EXPLORE PROGRAMS</a></div>
+      <div class="hero-meta"><span><b>⌖</b> Your City, India</span><span><b>◷</b> Open 5:00 AM – 11:00 PM</span></div>
+    </div>
+  </div>
+  <div class="hero-note">No Excuses<br>Just Results</div>
+</section>
+
+<section class="features">
+  <div class="container feature-grid">
+    <article class="feature reveal"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 8v8M3.5 9.5v5M18 8v8M20.5 9.5v5M6 12h12M3.5 12H2M22 12h-1.5"/></svg></div><h3>Modern Equipment</h3><p>Quality machines, free weights and functional training space.</p></article>
+    <article class="feature reveal"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 20v-2.1a6.5 6.5 0 0 1 13 0V20M9 13.8l3 2 3-2"/></svg></div><h3>Certified Coaches</h3><p>Expert guidance to help you train safely and consistently.</p></article>
+    <article class="feature reveal"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 19 6v5.2c0 4.3-2.9 7.8-7 9.8-4.1-2-7-5.5-7-9.8V6z"/><path d="m8.8 12.1 2.1 2.1 4.4-4.5"/></svg></div><h3>Clean & Safe</h3><p>Well-maintained facilities and a welcoming environment.</p></article>
+    <article class="feature reveal"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20v-1.6a5.5 5.5 0 0 1 11 0V20M16 5.5a3 3 0 0 1 0 5.8M17 14a4.2 4.2 0 0 1 3.5 4.1V20"/></svg></div><h3>Real Community</h3><p>Good energy, shared goals and progress worth celebrating.</p></article>
+  </div>
+</section>
+
+<section class="section" id="programs">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">OUR PROGRAMS</div><h2>TRAIN SMART. GET RESULTS.</h2><p>Choose a training style that fits your goals, your pace and your everyday life.</p></div>
+    <div class="programs-grid">
+      <article class="program-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=80" alt="Strength training with dumbbells"><div class="program-body"><div class="program-title">Strength Training <span>↗</span></div><p>Build strength, improve form and feel capable.</p><a class="program-link" href="#pricing">FIND YOUR PLAN →</a></div></article>
+      <article class="program-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80" alt="Fitness and mobility training"><div class="program-body"><div class="program-title">Fitness & Weight Goals <span>↗</span></div><p>Build sustainable habits and improve stamina.</p><a class="program-link" href="#pricing">FIND YOUR PLAN →</a></div></article>
+      <article class="program-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80" alt="Functional gym training area"><div class="program-body"><div class="program-title">Functional Fitness <span>↗</span></div><p>Move better, develop balance and train for life.</p><a class="program-link" href="#pricing">FIND YOUR PLAN →</a></div></article>
+      <article class="program-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80" alt="Personal coaching session"><div class="program-body"><div class="program-title">Personal Training <span>↗</span></div><p>One-to-one coaching tailored to your needs.</p><a class="program-link" href="#pricing">FIND YOUR PLAN →</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">MEMBERSHIP PLANS</div><h2>CHOOSE YOUR PLAN.</h2><p>Clear pricing. Flexible training. No mystery fees.</p></div>
+    <div class="pricing-grid">
+      <article class="price-card reveal"><h3>Basic</h3><p class="price-desc">A solid start for your fitness journey.</p><div class="price">₹1,999 <small>/ month</small></div><ul class="perks"><li>Gym access during regular hours</li><li>All standard equipment</li><li>Locker facility</li><li>Monthly progress check-in</li></ul><a class="btn btn-outline choose-plan" href="#contact" data-plan="Basic">GET STARTED</a></article>
+      <article class="price-card popular reveal"><div class="popular-tag">MOST POPULAR</div><h3>Pro</h3><p class="price-desc">For members ready to level up.</p><div class="price">₹2,999 <small>/ month</small></div><ul class="perks"><li>Everything in Basic</li><li>4 personal coaching sessions/month</li><li>Group classes included</li><li>Nutrition guidance basics</li><li>Priority locker access</li></ul><a class="btn choose-plan" href="#contact" data-plan="Pro">GET STARTED →</a></article>
+      <article class="price-card reveal"><h3>Elite</h3><p class="price-desc">More support, more personal attention.</p><div class="price">₹4,000 <small>/ month</small></div><ul class="perks"><li>Everything in Pro</li><li>8 personal coaching sessions/month</li><li>Personalised training plan</li><li>Monthly body-composition review</li><li>Recovery & wellness support</li></ul><a class="btn btn-outline choose-plan" href="#contact" data-plan="Elite">GET STARTED</a></article>
+    </div>
+    <p class="note">Prototype prices in INR. Final fees, taxes, offers and inclusions should be confirmed by the gym before launch.</p>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-pics reveal"><img class="pic-one" loading="lazy" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=85" alt="Modern gym floor with equipment"><img class="pic-two" loading="lazy" src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=700&q=80" alt="Training equipment close-up"><div class="about-stamp">STRONGER.<br>HEALTHIER.<br>HAPPIER.</div></div>
+    <div class="about-copy reveal"><div class="eyebrow">ABOUT GYM</div><h2>MORE THAN<br>A WORKOUT.</h2><p>We believe fitness should fit your life — not the other way around. GYM is designed to be a place where beginners feel welcome, experienced athletes stay challenged, and every effort counts.</p><p>Our focus is simple: quality equipment, helpful coaching, a clean space and a community that keeps you moving forward.</p><div class="stats"><div class="stat"><strong>5+</strong><span>Years of experience*</span></div><div class="stat"><strong>1K+</strong><span>Members supported*</span></div><div class="stat"><strong>4.8★</strong><span>Member rating*</span></div></div><a class="btn btn-outline btn-small" href="#contact">MEET US →</a><p class="note" style="text-align:left">*Example figures for this website prototype. Replace with verified business details.</p></div>
+  </div>
+</section>
+
+<section class="section trainers" id="trainers">
+  <div class="container"><div class="section-head reveal"><div class="eyebrow">MEET YOUR COACHES</div><h2>EXPERT GUIDANCE. REAL SUPPORT.</h2><p>Friendly coaching to help you learn good technique and stay consistent.</p></div>
+    <div class="trainer-grid">
+      <article class="trainer-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=650&q=80" alt="Fitness coach portrait"><div class="trainer-info"><h3>Arjun Sharma</h3><p>Strength & Conditioning</p><span>✦ COACH PROFILE — SAMPLE</span></div></article>
+      <article class="trainer-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=650&q=80" alt="Fitness trainer portrait"><div class="trainer-info"><h3>Priya Nair</h3><p>Fitness & Mobility</p><span>✦ COACH PROFILE — SAMPLE</span></div></article>
+      <article class="trainer-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=650&q=80" alt="Strength training coach"><div class="trainer-info"><h3>Rohit Singh</h3><p>Functional Training</p><span>✦ COACH PROFILE — SAMPLE</span></div></article>
+      <article class="trainer-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=650&q=80" alt="Fitness and wellness coach"><div class="trainer-info"><h3>Sneha Iyer</h3><p>Yoga & Flexibility</p><span>✦ COACH PROFILE — SAMPLE</span></div></article>
+    </div>
+    <p class="note">Trainer names and profiles are placeholders. Replace them with real team details before publishing for a business.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container"><div class="section-head reveal"><div class="eyebrow">THE GYM COMMUNITY</div><h2>SMALL STEPS. BIG WINS.</h2><p>Imagine what consistent support can help you achieve.</p></div>
+    <div class="testimonial-grid">
+      <article class="quote reveal"><div class="stars">★★★★★</div><p>“The atmosphere makes it easier to show up and keep building a routine. The coaches explain things without making you feel awkward.”</p><footer><span class="avatar">AM</span><span><strong>Member story</strong><br>Beginner member · Sample</span></footer></article>
+      <article class="quote reveal"><div class="stars">★★★★★</div><p>“I wanted a plan I could stick to. Having a clear routine and people to ask for help made the difference.”</p><footer><span class="avatar">RK</span><span><strong>Member story</strong><br>Regular member · Sample</span></footer></article>
+      <article class="quote reveal"><div class="stars">★★★★★</div><p>“Good equipment, welcoming energy and a place where I can focus on my own progress. That’s what I was looking for.”</p><footer><span class="avatar">NS</span><span><strong>Member story</strong><br>Community member · Sample</span></footer></article>
+    </div>
+    <p class="note">These testimonials are illustrative website copy, not real customer reviews.</p>
+  </div>
+</section>
+
+<section class="cta" id="contact"><div class="container reveal"><div class="eyebrow">READY TO START?</div><h2>YOUR NEXT CHAPTER STARTS HERE.</h2><p>Drop in, ask a question, or find the membership that fits your goals.</p><a class="btn" id="contactButton" href="mailto:hello@yourgym.in?subject=GYM%20membership%20enquiry">ENQUIRE NOW ↗</a></div></section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <a class="brand" href="#home"><svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M8 24h8v16H8zM18 17h7v30h-7zM25 28h14v8H25zM39 17h7v30h-7zM48 24h8v16h-8zM3 28h5v8H3zM56 28h5v8h-5z" fill="currentColor"/></svg><span>GYM<small>STRONGER TOGETHER</small></span></a>
+    <nav class="footer-links" aria-label="Footer navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#pricing">Pricing</a><a href="#trainers">Trainers</a><a href="#contact">Contact</a></nav>
+    <div class="socials"><a href="#contact" aria-label="Instagram">IG</a><a href="#contact" aria-label="YouTube">YT</a><a href="#contact" aria-label="Facebook">f</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© <span id="year"></span> GYM. Website prototype.</span><span>Stronger · Healthier · Happier</span></div>
+</footer>
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const menuToggle=document.getElementById('menuToggle');
+const navLinks=document.getElementById('navLinks');
+menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.textContent=open?'✕':'☰';});
+navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰';}));
+document.getElementById('year').textContent=new Date().getFullYear();
+
+const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target);}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>{backTop.classList.toggle('show',window.scrollY>500);},{passive:true});
+backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+const toast=document.getElementById('toast');
+let toastTimer;
+function showToast(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),4200);}
+document.querySelectorAll('.choose-plan').forEach(button=>button.addEventListener('click',()=>{const plan=button.dataset.plan;const subject=encodeURIComponent('Enquiry about '+plan+' membership');const body=encodeURIComponent('Hello GYM,\\n\\nI am interested in the '+plan+' membership. Please share details about availability, fees and how to join.\\n\\nThank you.');document.getElementById('contactButton').href='mailto:hello@yourgym.in?subject='+subject+'&body='+body;showToast(plan+' plan selected. Tap “Enquire Now” to open your email app. Update the sample email before launch.');}));
+
+const sections=[...document.querySelectorAll('main section[id]')];
+const navItems=[...document.querySelectorAll('.nav-links a')];
+const activeObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){navItems.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));}})},{rootMargin:'-35% 0px -55% 0px'});
+sections.forEach(section=>activeObserver.observe(section));
+</script>
+</body>
+</html>
